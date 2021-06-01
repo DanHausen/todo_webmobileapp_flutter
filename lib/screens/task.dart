@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_webmobileapp_flutter/screens/add_task_screen.dart';
 import 'package:todo_webmobileapp_flutter/widgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -9,7 +10,18 @@ class TasksScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) => SingleChildScrollView(
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: AddTaskScreen(),
+                    ),
+                  ),
+              backgroundColor: Colors.transparent);
+        },
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
