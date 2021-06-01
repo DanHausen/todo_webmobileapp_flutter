@@ -5,17 +5,61 @@ class TasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
-      body: Container(
-        child: Padding(
-          padding:
-              const EdgeInsets.only(top: 60, left: 30, right: 30, bottom: 30),
-          child: Column(
-            children: [
-              CircleAvatar(child: Icon(Icons.list, color: Colors.white)),
-              Text("To-do App"),
-            ],
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Colors.lightBlueAccent,
+        child: Icon(Icons.add),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  top: 60, left: 30, right: 30, bottom: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    child: Icon(
+                      Icons.list,
+                      size: 30,
+                      color: Colors.lightBlueAccent,
+                    ),
+                    backgroundColor: Colors.white,
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "To - do App",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    'tasks',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
