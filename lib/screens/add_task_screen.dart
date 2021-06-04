@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_webmobileapp_flutter/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  late String newTaskTile;
-  final Function addTaskCallback;
-
-  AddTaskScreen(this.addTaskCallback);
-
   @override
   Widget build(BuildContext context) {
+    late String newTaskTitle;
     return Container(
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -32,14 +30,14 @@ class AddTaskScreen extends StatelessWidget {
               autofocus: true,
               textAlign: TextAlign.center,
               onChanged: (newText) {
-                newTaskTile = newText;
+                newTaskTitle = newText;
               }),
           TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: Colors.lightBlueAccent,
                   primary: Colors.white),
               onPressed: () {
-                addTaskCallback(newTaskTile);
+                Provider.of<TaskData>(context).addTask(newTaskTitle);
               },
               child: Text("Teste"))
         ],
